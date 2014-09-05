@@ -1,0 +1,47 @@
+#admin-toolbox
+  position: fixed
+  left: 0
+  bottom: 100px
+  width: 200px
+  background-color: #f4d78f
+  padding: 2em 3em 2em 1em
+  z-index: 10000
+
+
+.toggle-on-click
+  .toc-on
+    display: block
+  .toc-off
+    display: none
+
+  &.is-off
+    .toc-on
+      display: none
+    .toc-off
+      display: block
+
+body.admin-editable .editable
+  outline: 1px dashed #66afe9
+
+.editable-root
+  position: relative
+  &.is-saved, &.is-saving, &.is-error
+    &:after
+      direction: ltr
+      position: absolute
+      display: block
+      top: 0
+      bottom: 0
+      right: 0
+      left: 0
+      padding: 1em
+      background-color: rgba(0,0,0,0.4)
+      font-size: 40px
+      color: white
+      text-align: center
+  &.is-saving:after
+    content: "Saving..."
+  &.is-saved:after
+    content: "Saved!"
+  &.is-error:after
+    content: "There was a problem :("

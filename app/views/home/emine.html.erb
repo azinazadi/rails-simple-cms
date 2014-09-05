@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%= stylesheet_link_tag "application", :media => "all" %>
+<%= csrf_meta_tags %>
+
+<title>Emine Demir CV</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="Generator" content="CV Maker - https://cvmkr.com/"/>
+<link href="http://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css"/>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif:700|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+<style type="text/css">
+  @media print {
+    #admin-toolbox {
+      display: none !important
+    }
+    body {
+      font-size: 10px!important;
+    }
+    .section .title {
+      font-size: 16px!important;
+    }
+    .set .item:first-child {
+      padding-top: 3px;
+    }
+    #main{
+      margin: 0 !important;
+      max-width: none;
+    }
+
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 13px;
+    color: #222;
+  }
+  ul {
+    padding-left: 25px;
+  }
+
+  h1, h2, h4 {
+    /*font-family: 'Droid Serif', 'Oswald', Impact, Helvetica, Arial, sans-serif;*/
+    font-family: Cantarell, 'Open Sans', sans-serif;
+    font-weight: normal;
+    margin: 0 0 15px 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 300%;
+  }
+
+  h2 {
+    font-size: 210%;
+    line-height: 1;
+  }
+
+  h3 {
+    font-size: 100%;
+    font-weight: bold;
+    font-family: 'helvetica neue';
+  }
+
+  p {
+    margin: 0 0 10px 0;
+  }
+
+  ul {
+    margin: 0;
+    list-style-type: square;
+  }
+
+  a {
+    color: #222;
+  }
+
+  /* ________________________________________________________ */
+  .rtl {
+    direction: rtl;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  #main {
+    max-width: 900px;
+    margin: 100px auto 0 auto;
+  }
+
+  #title {
+    border-bottom: 2px solid #000;
+    padding-bottom: 30px;
+    margin: 0px 0 30px 0;
+  }
+
+  #credit {
+    margin-bottom: 20px;
+    font-size: 11px;
+    color: #999;
+    text-align: center;
+  }
+
+  #credit a {
+    color: #999;
+  }
+
+  p label span.colon {
+    display: inline;
+  }
+
+  .section {
+    margin: 4em 0;
+  }
+
+  .section .set {
+    padding-left: 19em;
+  }
+
+  .item {
+    margin: 0 0 20px 0;
+  }
+
+  /*  _____________________________ */
+  .section .title {
+    text-transform: uppercase;
+    font-size: 170%;
+    margin: 0;
+    float:  left;
+    display: inline-block;
+  }
+
+  .section .set h3 {
+    margin: 0;
+  }
+
+  .basic-info {
+    border-top: 0;
+  }
+
+  .section.basic-info .title {
+    float: left;
+    border: 0;
+  }
+
+  .basic-info .set {
+    float: right;
+    width: 70%;
+  }
+
+  .basic-info .address {
+    width: 40%;
+    float: left;
+  }
+
+  .basic-info .r {
+    float: right;
+    width: 50%;
+    text-align: right;
+  }
+
+  .basic-info label {
+    font-family: 'Oswald', Helvetica, Arial, serif;
+  }
+
+  .basic-info label, .basic-info span {
+    display: inline !important;
+  }
+
+  .basic-info p {
+    margin: 0;
+  }
+
+  .section span {
+    display: block;
+  }
+
+  .section h3 span.l, .section span.r {
+    width: 49%;
+    float: left;
+  }
+
+  .section span.r {
+    float: right;
+    text-align: right;
+  }
+
+  .section-education .school,
+  .section-work .job_title {
+    font-size: 100%;
+    display: block;
+    margin: 5px 0 5px 0;
+  }
+
+  #photo {
+    width: 160px;
+    height: 200px;
+    overflow: hidden;
+    float: left;
+    margin-top: 4px;
+    border-radius: 4px;
+  }
+
+  #photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .header.photo {
+    margin-left: 190px;
+  }
+
+  .header.photo #title {
+    text-align: left;
+  }
+
+  .header.photo .basic-info {
+    float: none;
+    padding: 0;
+  }
+</style>
+</head>
+
+
+<body class="lang-en ">
+
+<div id="main">
+<div id="photo">
+  <img src="https://cvmkr.com/photos/874e8e_430305_976613.jpg" alt=""/>
+</div>
+<div class="header photo">
+  <h1 id="title"><%= st :name, :string do %>
+      Emine Demir
+    <% end %>
+  </h1>
+
+  <div class="basic-info">
+    <%= st :contact_info, :text do %>
+      Bouchéstr. 55<br/>12059 Berlin
+      emine.demir@rocketmail.com <br>
+      +49 177 435 22 89 <br>
+    <% end %>
+  </div>
+  <!-- basic-info //-->
+
+</div>
+<div class="clear"></div>
+
+<div class="section section-work">
+  <h2 class="title"><%= st :cat1 do %> Work experience <% end %></h2>
+
+  <div class="set">
+    <div class="item">
+      <h3><span class="company l"><%= st :title1 do %>  Leitung des Workshops<% end %></span>
+        <span class="date r"><%= st :date1 do %>Jan 2014<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc1 do %>Menschenrechtsorganisationen - Ein starkes Instrument für politische und berufliche Aktivist_innen<% end %></span><span class="info"></span><span
+    class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title2 do %>UNHCR PAKISTAN<% end %></span>
+        <span class="date r"><%= st :date2 do %>Jul 2011 &mdash; Sept 2011<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc2 do %>Projektassistentin (Praktikum)<% end %></span><span class="info">
+
+      <%= st :info2, :text do %>
+        <ul>
+          <li>
+            Monitoring,
+            Analyse und Berichterstattung über die Umsetzung von PPVR,
+            einer landesweiten Haushaltserhebung zur Situation afghanischer
+            Geflüchteter in Pakistan
+          </li>
+          <li>
+
+            Durchführung
+            von Workshops für community
+            mobiliser
+          </li>
+          <li>Erarbeitung
+            von Vorschlägen zur Verbesserung der Interviewmethoden
+          </li>
+          <li>
+
+            Zusammenarbeit
+            mit pakistanischen und afghanischen Behörden
+          </li>
+          <li>Feldmissionen
+
+          </li>
+        </ul><% end %></span>
+
+      <span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title3 do %>Tutorin<% end %></span>
+        <span class="date r"><%= st :date3 do %>Apr 2010 &mdash; Jul 2010<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc3 do %>Philipps-Universität Marburg<% end %></span><span class="info">
+        <%= st :info3, :text do %>
+              <ul>
+                <li>
+                  Vorbereitung
+                  und Durchführung von Lehrveranstaltungen
+                </li>
+                <li>Gruppenbesprechungen
+                  mit Studierenden
+                </li>
+                <li>Literaturrecherche
+
+                </li>
+              </ul>
+
+        <% end %>
+      </span><span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title4 do %>Dipl. Sozialarbeiterin<% end %></span>
+        <span class="date r"><%= st :date4 do %>Jun 2006 &mdash; Mär 2009<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc4 do %>Gesellschaft für Offene und Mobile Jugendarbeit Cannstatter INZEL  <% end %></span><span class="info">
+      <%= st :info4, :text do %>
+      <ul>
+        <li>Beratung von
+          Jugendlichen, Eltern und
+          sozialen Einrichtungen
+
+        </li>
+        <li>Gemeinwesenarbeit,
+          Streetwork und Gruppenarbeit
+        </li>
+        <li>Netzwerkarbeit
+          mit anderen sozialen Einrichtungen
+
+        </li>
+      </ul>
+    <% end %>
+
+    </span><span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title5 do %> Regisseurin und Projektleiterin <% end %></span>
+        <span class="date r"><%= st :date5 do %>Jul 2008 &mdash; Jun 2009<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc5 do %>Gesellschaft für Offene und Mobile Jugendarbeit Cannstatter INZEL    <% end %></span>
+      <span class="info">
+      <%= st :info5, :text do %>
+        <ul>
+          <li>Antragstellung, Leitung,
+            Recherche und Interviewführung für den Film 'Stadt der Milliarden Möglichkeiten'. Ein
+            Dokumentarfilm
+            über
+            Rassismus, Diskriminierung und Integration, gefördert
+            durch das Bundesministerium für Familie, Senioren, Frauen und
+            Jugend
+
+
+          </li>
+        </ul>
+      <% end %>
+      </span><span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title6 do %>Projektleiterin<% end %></span>
+        <span class="date r"><%= st :date6 do %>Nov 2007 &mdash; Mai 2008<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc6 do %>Lokales Kapital für Soziale Zwecke  <% end %></span><span class="info">
+
+      <%= st :info6 do %>
+        <ul>
+          <li>
+            Qualifizierung
+            von türkischsprachigen Frauen zu Mediatorinnen im Bereich Bildung und Familie
+          </li>
+        </ul>
+
+      <% end %>
+    </span><span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="company l"><%= st :title7 do %>Projektleiterin<% end %></span>
+        <span class="date r"><%= st :date7 do %>2008<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="job_title"><%= st :desc7 do %>Gesellschaft für Offene und Mobile Jugendarbeit Cannstatter INZEL <% end %></span><span class="info">
+
+      <%= st :info7 do %>
+        <ul>
+          <li>Planung und Durchführung des Projektes 'Knast kommt krass', Prävention eines
+            Gefängnisaufenthaltes
+            von delinquenten Jugendlichen
+          </li>
+        </ul>
+      <% end %>
+
+    </span><span class="clear"> </span>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="section section-qualifications">
+  <h2 class="title"><%= st :cat2 do %>Weiterbildung
+    <% end %></h2>
+
+  <div class="set">
+    <div class="item">
+      <span class="info">
+
+<%= st :info21, :text do %>
+      <ul>
+        <li>Pädagogisches Handeln in der Einwanderungsgesellschaft, Weiterbildung zur
+          Interkulturellen
+          Trainerin und Beraterin, Paritätisches
+          Jugendwerk Baden-Württemberg
+
+        </li>
+      </ul>
+<% end %>      </span>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="section section-education">
+  <h2 class="title"><%= st :cat3 do %>Bildung<% end %></h2>
+
+  <div class="set">
+    <div class="item">
+      <h3><span class="course l"><%= st :title31 do %>Friedens- und Konfliktforschung<% end %></span>
+        <span class="date r"><%= st :date31 do %>Okt 2009 &mdash; Dez 2012<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="school"><%= st :desc31 do %>Philipps-Universität Marburg<% end %></span><span class="info">
+
+<%= st :info31, :text do %>      Thesis:
+<em>‘Education as a Conflict Prevention Tool in Pakistan?’</em><br/><br/>
+
+					Abschluss:
+Master of Arts – Note: 1,8
+<% end %>
+
+    </span><span class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="course l"><%= st :title32 do %>International Conflict Analysis<% end %></span>
+        <span class="date r"><%= st :date32 do %>Sept 2010 &mdash; Mai 2011<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="school"><%= st :desc32 do %>University of Kent<% end %></span><span class="info"><%= st :info32, :text do %>Auslandssemester<% end %></span><span
+    class="clear"> </span>
+    </div>
+
+    <div class="item">
+      <h3><span class="course l"><%= st :title33 do %>Sozialpädagogik/Sozialarbeit<% end %></span>
+        <span class="date r"><%= st :date33 do %>Okt 2001 &mdash; Feb 2006<% end %></span>
+      </h3>
+      <span class="clear"> </span>
+      <span class="school"><%= st :desc33 do %>Hochschule Ludwigsburg<% end %></span><span class="info"><%= st :info33, :text do %>Abschluss:
+Diplom – Note 1,5 <% end %>
+</span><span class="clear"> </span>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div class="section section-references">
+  <h2 class="title"><%= st :cat5 do %>Referenzen<% end %></h2>
+
+  <div class="set">
+    <div class="item">
+							<span class="info"><%= st :info51, :text do %><strong>Hans-Christof
+                von Sponeck</strong>,
+32
+Jahre UNO, Führungsposten Ankara, Islamabad, Neu-Delhi,
+Genf und Baghdad; verantwortlich als Beigeordneter UNO
+Generalsekretär für
+das Humanitäre Programm im Irak in den Sanktionsjahren; Dozent an
+den Universitäten
+Marburg
+und Basel und am UNO Ausbildungszentrum in Turin<br/>Tel.:
++49 763 193 791 0 |
+eMail: sponeck@staff.uni-marburg.de<br/><br/>
+
+<strong>Ajmal
+  Khybari</strong>, Senior Legal
+Advisor, UN-Diplomat beim UNHCR Genf, Stellvertretender Repräsentant
+des UNHCR Pakistan
+<br/>
+
+Tel.: +41 22
+739 8162 |
+eMail: Khybari@unhcr.org
+<br/>
+
+<strong>PD
+  Dr. Johannes M. Becker</strong>,
+Dozent und Koordinator des Studienganges Friedens- und
+Konfliktforschung, Geschäftsführer des Zentrums für
+Konfliktforschung Marburg<br/>
+
+Tel.: +49 64
+21 282 45 03 |
+eMail: jbecker@staff.uni-marburg.de<br/><br/>
+
+<strong>Claudia
+  Haydt</strong>, Vorstandsmitglied
+der Informationsstelle Militarisierung e.V., Vorstandsmitglied
+der Europäischen Linkspartei, Dozentin für Soziologie (FH Kärnten)<br/>
+
+Tel.: +49
+177 753 482 2 |
+eMail: Claudia.Haydt@t-online.de
+<br/><br/>
+
+<strong>Marie
+  Déjeux</strong>, Leiterin der Jugendeinrichtung Cannstatter INZEL, Offene
+und Mobile Jugendarbeit, Stuttgart
+<br/>
+
+Tel.:
++49 711
+560 048 |
+eMail: inzel@mja-stuttgart.de <% end %>
+</span>
+    </div>
+  </div>
+</div>
+
+<div class="section section-education">
+  <div class="set">
+    <table width="100%">
+      <tr>
+        <td width="40%"></td>
+        <td><img src="http://oi57.tinypic.com/2hzthsg.jpg" width="150px" height="auto"></td>
+      </tr>
+        <td>
+          <div><%= st :data_place_ets, :text do%> 29 Mai 2014, Berlin <% end %></div>
+        </td>
+        <td>
+          <div><%= st :name2, :text do%> Emine Demir <% end %></div>
+        </td>
+
+    </table>
+
+    <br>
+  </div>
+</div>
+
+</div>
+<%= javascript_include_tag "application" %>
+<%= yield :javascript_includes %>
+
+<%- if can?(:see, :admin_toolbar) %>
+  <%= render :partial => 'shared/admin_toolbox' %>
+
+<% end %>
+
+</body>
+</html>

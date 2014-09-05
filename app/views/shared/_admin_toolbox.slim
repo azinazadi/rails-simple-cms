@@ -1,0 +1,17 @@
+/- content_for :javascript_includes do
+= javascript_include_tag('admin-toolbox')
+
+/- content_for :stylesheet_includes do
+= stylesheet_link_tag('admin-toolbox')
+
+#admin-toolbox.layout-en
+  h3 Admin Toolbox
+
+  .toggle-on-click
+    a.at-edit.toc-on.btn.btn-primary.toc-switch.admin-action href='javascript:void(0)' Edit Content
+
+    .toc-off.vlist
+      a.at-cancel.btn.btn-primary.toc-switch.admin-action href='javascript:void(0)' Cancel Editing
+      a.at-save.btn.btn-primary.admin-action href='javascript:void(0)' Save Changes
+
+
