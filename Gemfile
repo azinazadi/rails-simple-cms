@@ -1,18 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.1.0'
 
 gem 'i18n'
 gem 'globalize'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '~> 4.0.3'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '>= 1.3.0'
+  # Use CoffeeScript for .js.coffee assets and views
+  gem 'coffee-rails', '~> 4.0.0'
   gem 'compass-rails'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-  gem 'uglifier', '>= 1.0.3'
-  gem 'bootstrap-sass', '~> 3.1.1'
+  gem 'bootstrap-sass', '~> 3.2.0'
 end
 
 group :test do
@@ -30,18 +33,21 @@ group :production do
 end
 
 gem "slim-rails"
-gem "jquery-rails", "< 3.0.0"
+gem "jquery-rails"
 gem 'simple_form'
 
-gem 'activeadmin', github: 'gregbell/active_admin', branch: '0-6-stable'
-gem 'country_select'
-# gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
+# gem 'country_select'
+gem 'devise'
 gem 'cancan'
+gem 'protected_attributes'
 
 #ckeditor + additions for rails
-gem 'rich'
+# goto master after this fixed: https://github.com/bastiaanterhorst/rich/issues/162
+gem 'rich', github: 'bastiaanterhorst/rich', ref: 'a3b4fcccf22788763b44dc732acce6547e0380a4'
 
-gem 'paperclip', '~> 3.5'
+
+gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 1.5.7'
 
 gem 'mandrill-api'
@@ -64,4 +70,4 @@ gem 'awesome_nested_fields'
 # To use debugger
 # gem 'debugger'
 
-ruby '1.9.3'
+ruby '2.0.0'

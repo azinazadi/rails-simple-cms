@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: simple-cms-2
+  database: raemble
   pool: 5
   timeout: 5000
 
@@ -21,7 +21,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: doxbox_production_2
+  database: raemble
   pool: 5
-  username: doxboxadmin
+  username: raemble
   password:

@@ -1,12 +1,20 @@
 #inline editor
 window.ckeditor_config_master = {
   customConfig : ''
+  toolbar_minimal: [
+    { name: 'clipboard',    items: [ 'Undo', 'Redo' ] },
+    { name:"basicstyles",   items: [ "Format", "Bold", "", "RemoveFormat" ] }
+    { name: "paragraph",    items: [ "NumberedList", "BulletedList" ] }
+    { name: "links",        items: [ "Link", "Unlink" ] }
+  ]
+
   toolbar_normal: [
-    { name:"basicstyles", groups: [ "basicstyles", "cleanup" ], items: [ "ShowBlocks", "Format", "Bold", "", "RemoveFormat" ] }
-    { name: "paragraph", items: [ "NumberedList", "BulletedList" ] }
-    { name: "paragraph", items: ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-','BidiLtr','BidiRtl' ]  }
-    { name: "links", items: [ "Link", "Unlink", "Anchor" ] }
-    #    { name: "insert", items: [ "Image", "Slideshow" ] }
+    { name: 'clipboard',    items: [ 'Undo', 'Redo' ] },
+    { name: "insert",       items: [ "Image" ] }
+    { name:"basicstyles",   items: [ "ShowBlocks", "Format", "Bold", "", "RemoveFormat" ] }
+    { name: "paragraph",    items: [ "NumberedList", "BulletedList" ] }
+    { name: "paragraph",    items: ['JustifyLeft','JustifyCenter' ]  }
+    { name: "links",        items: [ "Link", "Unlink", "Anchor" ] }
   ]
 
   toolbar_full : [
@@ -18,8 +26,10 @@ window.ckeditor_config_master = {
 #    { name: 'insert', items: [ 'CreatePlaceholder', 'Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe', 'InsertPre' ] }
 #    { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] }
 #    '/'
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', 'RemoveFormat' ] }
-    { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', 'BidiLtr', 'BidiRtl' ] }
+    { name: 'clipboard',  items: [ 'Undo', 'Redo' ] },
+    { name: 'insert', items: [  'Image', 'Table', 'HorizontalRule', 'SpecialChar', 'PageBreak', 'Iframe' ] }
+    { name: 'basicstyles',  items: [ 'Bold', 'Italic', 'Underline', 'RemoveFormat' ] }
+    { name: 'paragraph',  items: [ 'NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', 'CreateDiv', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] }
     { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] }
     '/'
     { name: 'styles', items: [ 'ShowBlocks' , 'Format', 'Font', 'FontSize' ] }
@@ -48,10 +58,15 @@ window.ckeditor_config_master = {
   forcePasteAsPlainText: true
   startupShowBorders: true
 }
-window.ckeditor_config_full_toolbar = window.ckeditor_config_master
-window.ckeditor_config_full_toolbar['toolbar']='full'
 
-window.ckeditor_config_normal_toolbar = window.ckeditor_config_master
-window.ckeditor_config_normal_toolbar['toolbar']='normal'
 
-formattedConfig = (formatNames) ->
+window.ckeditor_configs={}
+window.ckeditor_configs['full'] = $.extend({},window.ckeditor_config_master)
+window.ckeditor_configs['full']['toolbar']='full'
+
+window.ckeditor_configs['normal'] = $.extend({},window.ckeditor_config_master)
+window.ckeditor_configs['normal']['toolbar']='normal'
+
+window.ckeditor_configs['minimal'] = $.extend({},window.ckeditor_config_master)
+window.ckeditor_configs['minimal']['toolbar']='minimal'
+

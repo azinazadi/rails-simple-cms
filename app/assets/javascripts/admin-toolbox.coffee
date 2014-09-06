@@ -30,10 +30,7 @@ $ ->
     $('.editable').attr('contenteditable', "true")
 
   $(document).on 'click', 'body.admin-editable .editable[data-editor-type="text"]', ->
-    CKEDITOR.inline this, window.ckeditor_config_normal_toolbar
-
-  $(document).on 'click', 'body.admin-editable .editable[data-editor-type="text_with_full_editor"]', ->
-    CKEDITOR.inline this, window.ckeditor_config_full_toolbar
+    CKEDITOR.inline this, window.ckeditor_configs[($ this).data('editor')]
 
   $('.at-cancel').click ->
     $('body').removeClass('admin-editable')
