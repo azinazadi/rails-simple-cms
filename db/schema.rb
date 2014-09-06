@@ -32,13 +32,12 @@ ActiveRecord::Schema.define(version: 20140528211005) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "pages", force: true do |t|
-    t.string   "title"
-    t.string   "text"
-    t.string   "image"
+    t.string   "title",      default: "", null: false
+    t.string   "image",      default: "", null: false
+    t.text     "content",    default: "", null: false
+    t.string   "slug",       default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "content",    default: "", null: false
-    t.string   "name",       default: "", null: false
   end
 
   create_table "rich_rich_files", force: true do |t|

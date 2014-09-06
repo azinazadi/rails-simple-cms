@@ -57,11 +57,11 @@ Doxbox::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'home#index'
-  get '/emine' => 'home#emine'
 
   #match '/:name' => 'home#general', :action => :general
   post '/inplace-update/' => 'application#inplace_update', :as => :inplace_update
 
+  get ':slug' => 'home#page'
 
   # See how all your routes lay out with "rake routes"
 

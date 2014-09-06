@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  database: raemble
+  database: raemble-2
   pool: 5
   timeout: 5000
 
@@ -21,7 +21,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: raemble
+  database: raemble-2
   pool: 5
   username: raemble
   password:

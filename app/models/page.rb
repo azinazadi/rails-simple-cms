@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  attr_accessible :name, :title, :content
+  attr_accessible :title, :slug, :image, :content
 
 
 end

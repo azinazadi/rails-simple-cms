@@ -1,5 +1,6 @@
 doctype html
-html
+
+<html>
   head
     link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700" rel="stylesheet" type="text/css"
     = stylesheet_link_tag "application", :media => "all"
@@ -7,15 +8,17 @@ html
     = yield :stylesheet_includes
 
 
-  body id=params[:controller].split('/').last class="#{params[:action]}"
-    p.notice= notice
-    p.alert= alert
+<body id=params[:controller].split('/').last class="#{params[:action]}">
+p.notice= notice
+p.alert= alert
 
-    #main
-      = yield
+#main.container
+  = yield
 
-    = javascript_include_tag "application"
-    = yield :javascript_includes
+= javascript_include_tag "application"
+= yield :javascript_includes
 
-    - if can?(:see, :admin_toolbar)
-      = render :partial => 'shared/admin_toolbox'
+- if can?(:see, :admin_toolbar)
+  = render :partial => 'shared/admin_toolbox'
+</body>
+</html>
