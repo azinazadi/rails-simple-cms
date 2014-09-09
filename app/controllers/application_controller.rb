@@ -24,4 +24,10 @@ class ApplicationController < ActionController::Base
 
     end
   end
+
+  protected
+  def main_attrs
+    { class: 'container' }
+  end
+  helper_method :main_attrs
 end

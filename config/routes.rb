@@ -1,13 +1,13 @@
 Doxbox::Application.routes.draw do
 
-  devise_for :users
+  devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout" }
 
   mount Rich::Engine => '/rich', :as => 'rich'
 
   ActiveAdmin.routes(self)
 
   #post "/admin/invited_users/:id/send_invitation" => 'Admin::InvitedUsersController#send_invitation'
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -61,7 +61,7 @@ Doxbox::Application.routes.draw do
   #match '/:name' => 'home#general', :action => :general
   post '/inplace-update/' => 'application#inplace_update', :as => :inplace_update
 
-  get ':slug' => 'home#page'
+  # get ':slug' => 'home#page'
 
   # See how all your routes lay out with "rake routes"
 

@@ -13,5 +13,7 @@
     .toc-off.vlist
       a.at-cancel.btn.btn-primary.toc-switch.admin-action href='javascript:void(0)' Cancel Editing
       a.at-save.btn.btn-primary.admin-action href='javascript:void(0)' Save Changes
+  hr
+  .align-center= link_to('Logout', destroy_user_session_path, :method => :delete)
 
 
