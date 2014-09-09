@@ -33,4 +33,8 @@ module ApplicationHelper
     end.html_safe
   end
 
+
+  def raemble_svg
+    image_tag 'raemble.svg', class: 'logo'
+  end
 end

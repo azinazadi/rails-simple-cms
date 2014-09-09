@@ -1,0 +1,28 @@
+= folie ($top, $right, $bottom, $left, $bg)
+  top: $top
+  left: $left
+  //have to set explicit height so vertical centering works
+  height: 100% - $top - $bottom
+  //just in harmony with having explicit height
+  width: 100% - $left - $right
+  background-color: $bg
+
+.folie
+  position: fixed
+  color: white
+
+  padding: 3rem
+
+  &:not(.f-start)
+    .logo
+      display: block
+      zoom: 0.7
+      margin-bottom: 2rem
+  &.f-start
+    +transform-style (preserve-3d)
+    +folie(3.5%, 3.5%, 3.5%, 3.5%, rgba(6, 5, 30, 0.80))
+
+  &.f-concept
+    +folie(6%, 2%, 5%, 1%, rgba(0, 51, 102, 0.80))
+
+

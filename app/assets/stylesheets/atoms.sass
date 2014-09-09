@@ -223,7 +223,7 @@
 
 
 
-//NEW STUFF FOR DOXBOX
+
 .vcenter-container
   &:before
     content: ''
@@ -232,10 +232,19 @@
     vertical-align: middle
     margin-right: -0.25em // Adjusts for spacing
 
-  &.vcenter
+  .vcenter
     display: inline-block
     vertical-align: middle
     width: 300px
+
+
+.simple-vcenter
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  -ms-transform: translateY(-50%)
+  transform: translateY(-50%)
+
 
 .single-top-margin
   margin-top: 1em
