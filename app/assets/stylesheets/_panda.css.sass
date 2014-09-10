@@ -17,11 +17,11 @@ $folie-nr: 1
   background-color: $bg
   &.f-active
     background-color: rgba($bg, 0.8)
-    color: white
+    color:            $text-color
     z-index: 5
   &:not(.f-active)
     background-color: rgba($bg, 0.4)
-    color: rgba(255,255,255,0.2)
+    color:            rgba($text-color,0.2)
 
 
 .navi
@@ -33,6 +33,8 @@ $folie-nr: 1
   +transform( rotate(-90deg))
   a
     +transform(rotate(45deg))
+    &.n-active
+      color: white
 
 .folie
   position: absolute

@@ -4,11 +4,13 @@ ruby:
   end
 
 .navi.vlist.vlist-double
-  = navi st('ARTFUL WALKS'), 'artful-walks'
-  = navi st('ABOUT US'), 'about-us'
-  = navi st('CONTACT US'), 'contact-us'
-  = navi st('GUEST BOOK'), 'guest-book'
-  = navi st('SITE NOTICE'), 'site-notice'
+  = navi st('ARTFUL WALKS'),  'artful-walks'
+  = navi st('ABOUT US'),      'about-us'
+  = navi st('ARIANE'),        'ariane'
+  = navi st('NORBERT'),       'norbert'
+  = navi st('CONTACT US'),    'contact-us'
+  = navi st('GUEST BOOK'),    'guest-book'
+  = navi st('SITE NOTICE'),   'site-notice'
 
 .folie.f-start.f-active.align-center
   .simple-vcenter
@@ -20,6 +22,14 @@ ruby:
   h1 = st('Concept')
 
 .folie.f-about-us
+  = raemble_svg
+  h1 = st('About us')
+
+.folie.f-ariane
+  = raemble_svg
+  h1 = st('About us')
+
+.folie.f-norbert
   = raemble_svg
   h1 = st('About us')
 
