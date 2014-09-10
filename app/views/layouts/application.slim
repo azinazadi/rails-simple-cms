@@ -8,7 +8,7 @@ doctype html
     = yield :stylesheet_includes
 
 
-<body id=params[:controller].split('/').last class="#{params[:action]}">
+<body id="#{params[:controller].split('/').last}" class="#{params[:action]}">
 /p.notice= notice
 /p.alert= alert
 
