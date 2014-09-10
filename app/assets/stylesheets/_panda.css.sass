@@ -4,7 +4,18 @@ body
 #main
   position: static
 
-$folie-nr: 1
+.navi
+  position:   fixed
+  top:        5rem
+  right:      12rem
+  text-align: right
+  z-index:    10
+  +transform( rotate(-90deg))
+  a
+    +transform(rotate(45deg))
+    &.n-active
+      color: white
+
 
 
 = folie ($top, $right, $bottom, $left, $bg)
@@ -21,20 +32,10 @@ $folie-nr: 1
     z-index: 5
   &:not(.f-active)
     background-color: rgba($bg, 0.4)
-    color:            rgba($text-color,0.2)
+    *
+      opacity: 0.2
+    //color:            rgba($text-color,0.2)
 
-
-.navi
-  position:   fixed
-  top:        5rem
-  right:      12rem
-  text-align: right
-  z-index:    10
-  +transform( rotate(-90deg))
-  a
-    +transform(rotate(45deg))
-    &.n-active
-      color: white
 
 .folie
   position: absolute
@@ -57,9 +58,30 @@ $folie-nr: 1
 
   &.f-start
     +transform-style (preserve-3d)
-    +folie(3.5vh, 3.5vw, 3.5vh, 3.5vw, rgb(6, 5, 30))
+    +folie(3.5vh, 3.5vw, 3.5vh, 3.5vw, #000033)
 
   &.f-artful-walks
-    +folie(6vh, 2vw, 5vh, 1vw, rgb(0, 51, 102))
+    +folie(6vh, 2vw, 5vh, 1vw, rgb(0, 65, 116))
+
+
   &.f-about-us
-    +folie(2vh, 6vw, 4vh, 3vw, #443322)
+    +folie(5vh, 2vw, 4vh, 7vw, #0e0058)
+
+  &.f-ariane
+    +folie(5vh, 2vw, 3vh, 6vw, #003366)
+
+  &.f-norbert
+    +folie(5vh, 2vw, 3vh, 6vw, #003366)
+
+  &.f-contact-us
+    +folie(8.5vh, 1vw, 2vh, 1vw, #000033)
+
+  &.f-guest-book
+    +folie(1.5vh, 1.5vw, 1vh, 1vw, #78bbcb)
+
+  &.f-site-notice
+    +folie(2vh, 1vw, 1.5vh, 1vw, #333333)
+
+  &.f-see-you-soon
+    +folie(6.5vh, 5vw, 3vh, 4.5vw, #443322)
+
