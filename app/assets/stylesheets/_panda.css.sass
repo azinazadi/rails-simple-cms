@@ -1,28 +1,66 @@
+body
+  color: white
+  position: relative
+#main
+  position: static
+
+$folie-nr: 1
+
+
 = folie ($top, $right, $bottom, $left, $bg)
   top: $top
   left: $left
   //have to set explicit height so vertical centering works
-  height: 100% - $top - $bottom
+  height: 100vh - $top - $bottom
   //just in harmony with having explicit height
-  width: 100% - $left - $right
+  width: 100vw - $left - $right
   background-color: $bg
+  &.f-active
+    background-color: rgba($bg, 0.8)
+    color: white
+    z-index: 5
+  &:not(.f-active)
+    background-color: rgba($bg, 0.4)
+    color: rgba(255,255,255,0.2)
+
+
+.navi
+  position:   fixed
+  top:        5rem
+  right:      12rem
+  text-align: right
+  z-index:    10
+  +transform( rotate(-90deg))
+  a
+    +transform(rotate(45deg))
 
 .folie
-  position: fixed
-  color: white
-
+  position: absolute
   padding: 3rem
 
+  .f-navi
+    color: #ff0000
+    z-index: 200
+    position: fixed
+    -webkit-backface-visibility: hidden
+    -webkit-transform: translateZ(0)
+
+  .logo
+    max-width: 100%
   &:not(.f-start)
     .logo
       display: block
       zoom: 0.7
       margin-bottom: 2rem
+
   &.f-start
     +transform-style (preserve-3d)
-    +folie(3.5%, 3.5%, 3.5%, 3.5%, rgba(6, 5, 30, 0.80))
+    +folie(3.5vh, 3.5vw, 3.5vh, 3.5vw, rgb(6, 5, 30))
 
-  &.f-concept
-    +folie(6%, 2%, 5%, 1%, rgba(0, 51, 102, 0.80))
+  &.f-artful-walks
+    +folie(6vh, 2vw, 5vh, 1vw, rgb(0, 51, 102))
+  &.f-about-us
+    +folie(2vh, 6vw, 4vh, 3vw, #443322)
 
 
+  .f-active

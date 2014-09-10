@@ -1,10 +1,38 @@
-/.folie.f-concept
-  = raemble_svg
-  b hello
-  p jaaaah
+ruby:
+  def navi(text, id)
+    link_to text, 'javascript:void(0)', 'data-activate'=> id
+  end
 
-.folie.f-start.align-center
+.navi.vlist.vlist-double
+  = navi st('ARTFUL WALKS'), 'artful-walks'
+  = navi st('ABOUT US'), 'about-us'
+  = navi st('CONTACT US'), 'contact-us'
+  = navi st('GUEST BOOK'), 'guest-book'
+  = navi st('SITE NOTICE'), 'site-notice'
+
+.folie.f-start.f-active.align-center
   .simple-vcenter
     = raemble_svg
-    h1 ARTFULL WALKS
+    h1 = st 'ARTFUL WALKS'
+
+.folie.f-artful-walks
+  = raemble_svg
+  h1 = st('Concept')
+
+.folie.f-about-us
+  = raemble_svg
+  h1 = st('About us')
+
+.folie.f-contact-us
+  = raemble_svg
+  h1 = st('Contact us')
+
+.folie.f-guest-book
+  = raemble_svg
+  h1 = st('Guest Book')
+
+.folie.f-site-notice
+  = raemble_svg
+  h1 = st('Site Notice')
+
 

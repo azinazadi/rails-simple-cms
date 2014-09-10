@@ -20,7 +20,7 @@ module ApplicationHelper
   # if the user can edit it, its' gonna be editable
   def st key, type=:string, editor=:normal, &block
     st = StaticText.find_by_key(key) || StaticText.create(key: key)
-    val = st.value.presence || (capture &block if block) || "#{key}...".tr('_', ' ')
+    val = st.value.presence || (capture &block if block) || "#{key}".tr('_', ' ')
     if can? :edit, st
       tag = (type==:string ? :span : :div)
       content_tag tag, editable_root(st) do
