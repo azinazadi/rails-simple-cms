@@ -20,34 +20,42 @@ ruby:
 
 .folie.f-artful-walks
   = raemble_svg
-  div.left-col = st 'Concept', :text
+  div.f-content
+    .half = st 'Concept1', :text
+    .half = st 'Concept2', :text
 
 .folie.f-about-us
   = raemble_svg
-  div.left-col = st 'About us', :text
+  div.f-content : .half= st 'About us', :text
 
 .folie.f-ariane
   = raemble_svg
-  div.left-col = st 'Ariane', :text
+  div.f-content
+    .half = st 'Ariane', :text
+    .half = image_tag 'ariane.jpg', alt: 'Ariane'
 
 .folie.f-norbert
   = raemble_svg
-  div.left-col = st 'norbert', :text
+  div.f-content
+    .half = st 'norbert', :text
+    .half = image_tag 'norbert.jpg', alt: 'Norbert'
 
 .folie.f-contact-us
   = raemble_svg
-  div.left-col = st 'Contact us', :text
-  pre The form will apear here
-  div.left-col = st 'contact links', :text
+  div.f-content : .half
+    = st 'Contact us', :text
+    pre The form will apear here
+    div = st 'contact links', :text
 
 .folie.f-guest-book
   = raemble_svg
-  div.left-col = st 'Guest Book', :text
+  div.f-content : .half = st 'Guest Book', :text
 
 .folie.f-site-notice
   = raemble_svg
-  div.left-col = st 'Site Notice', :text
+  div.f-content : .half = st 'Site Notice', :text
 
 .folie.f-see-you-soon
+  .fsys-bg
   = raemble_svg
-  div.left-col = st 'See you soon.', :text
+  div.f-content : .half = st 'See you soon.', :text

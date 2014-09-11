@@ -1,3 +1,14 @@
+$text-color: #eee
+html, body
+  font-size: 16px
+  line-height: 1.7
+  font-family: "Montserrat", Arial, Helvetica, sans-serif
+  color: $text-color
+a
+  color: #ddd
+  &:hover
+    color: #fff
+
 body#home
   color: white
   position: relative
@@ -8,8 +19,8 @@ body#sessions
 
 .navi
   position:   fixed
-  top:        -4rem
-  right:      20rem
+  top:        -5rem
+  right:      16rem
   text-align: right
   z-index:    10
   +transform( rotate(-90deg))
@@ -36,22 +47,31 @@ body#sessions
     background-color: rgba($bg, 0.4)
     *
       opacity: 0.2
+    .fsys-bg
+    opacity: 0.1
     //color:            rgba($text-color,0.2)
 
 
 .folie
-  position: absolute
+  position: fixed
   padding: 3rem
-
-  .f-navi
-    color: #ff0000
-    z-index: 200
-    position: fixed
-    -webkit-backface-visibility: hidden
-    -webkit-transform: translateZ(0)
+  overflow-y: auto
+  .f-content
+    position: absolute
+    top: 11rem
+    bottom: 3rem
+    left: 3rem
+    right: 3rem
+    overflow-y: auto
+  
 
   .logo
     max-width: 100%
+  img
+    max-height: 100%
+    max-width: 100%
+    width: auto
+    height: auto
   &:not(.f-start)
     .logo
       display: block
@@ -79,14 +99,30 @@ body#sessions
 
   &.f-guest-book
     +folie(1.5vh, 1.5vw, 1vh, 0.5vw, #78bbcb)
+    &.f-active
+      background-color: rgba(#78bbcb, 0.7)
+
 
   &.f-site-notice
     +folie(2vh, 1vw, 1.5vh, 1vw, #333333)
 
   &.f-see-you-soon
     +folie(6.5vh, 5vw, 3vh, 4.5vw, #443322)
+    .fsys-bg
+      position: absolute
+      top:    0
+      right:  0
+      bottom: 0
+      left:   0
+      background: url("/assets/cusoon.jpg") no-repeat center center fixed
+      +background-size(cover)
 
-.left-col
-  width: 50%
+.half
+  float: left
+  width: 47%
+  &:first-child
+    margin-right: 6%
   +on-mobile
+    float: none
     width: 100%
+    margin-right: 0
