@@ -19,6 +19,8 @@ a, input[type='submit']
   color: #fff
   &:hover
     color: #fff
+
+
 form.contact-form
   *
     background-color: transparent
@@ -44,6 +46,8 @@ form.contact-form
   .cf-from
     width: 20rem
     max-width: 100%
+  table
+    overflow: hidden
 
 body#home
   color: white
@@ -62,8 +66,10 @@ body#sessions
   +transform( rotate(-90deg))
   a
     +transform(rotate(45deg))
-    &.n-active
-      font-weight: bold
+    opacity: 0.7
+    &.n-active, &:hover
+      //font-weight: bold
+      opacity: 1
 
   body[data-current-folie='start'] &
     display: none
@@ -159,6 +165,6 @@ body#sessions
   &:first-child
     margin-right: 6%
   +on-mobile
-    float: none
-    width: 100%
-    margin-right: 0
+    float: none !important
+    width: 100% !important
+    margin-right: 0 !important

@@ -32,4 +32,4 @@ $ ->
     navigateTo target
 
   # next folie on click
-  $('.folie').click -> navigateTo(nextFolie[$(this).data('id')])
+  $('.folie').click (event) -> navigateTo(nextFolie[$(this).data('id')]) unless event.target.tagName.toUpperCase() in ['INPUT', 'TEXTAREA', 'A', 'BUTTON']
