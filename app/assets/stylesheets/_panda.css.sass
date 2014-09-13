@@ -65,7 +65,8 @@ body#sessions
     &.n-active
       font-weight: bold
 
-
+  body[data-current-folie='start'] &
+    display: none
 
 = folie ($top, $right, $bottom, $left, $bg)
   top: $top

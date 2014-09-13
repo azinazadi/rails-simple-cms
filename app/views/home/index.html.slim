@@ -13,34 +13,34 @@ ruby:
   = navi st('SITE NOTICE'),   'site-notice'
   = navi st('SEE YOU SOON'),  'see-you-soon'
 
-.folie.f-start.f-active.align-center
+.folie.f-start.f-active.align-center data-id='start'
   .simple-vcenter
     = raemble_svg
     h1 = st 'ARTFUL WALKS'
 
-.folie.f-artful-walks
+.folie.f-artful-walks data-id='artful-walks'
   = raemble_svg
   div.f-content
     .half = st 'Concept1', :text
     .half = st 'Concept2', :text
 
-.folie.f-about-us
+.folie.f-about-us data-id='about-us'
   = raemble_svg
   div.f-content : .half= st 'About us', :text
 
-.folie.f-ariane
+.folie.f-ariane data-id='ariane'
   = raemble_svg
   div.f-content
     .half = st 'Ariane', :text
     .half = image_tag 'ariane.jpg', alt: 'Ariane'
 
-.folie.f-norbert
+.folie.f-norbert data-id='norbert'
   = raemble_svg
   div.f-content
     .half = st 'norbert', :text
     .half = image_tag 'norbert.jpg', alt: 'Norbert'
 
-.folie.f-contact-us
+.folie.f-contact-us data-id='contact-us'
   = raemble_svg
   div.f-content : .half
     = st 'Contact us', :text
@@ -58,15 +58,15 @@ ruby:
 
     div = st 'contact links', :text
 
-.folie.f-guest-book
+.folie.f-guest-book data-id='guest-book'
   = raemble_svg
   div.f-content : .half = st 'Guest Book', :text
 
-.folie.f-site-notice
+.folie.f-site-notice data-id='site-notice'
   = raemble_svg
   div.f-content : .half = st 'Site Notice', :text
 
-.folie.f-see-you-soon
+.folie.f-see-you-soon data-id='see-you-soon'
   .fsys-bg
   = raemble_svg
   div.f-content : .half = st 'See you soon.', :text
