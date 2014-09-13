@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.9.4//EN
+N:Walks;Artful;;;
+FN:Ramble
+NICKNAME:Ariane Pauls and Norbert Witzgall
+ORG:Ramble;
+EMAIL;type=INTERNET;type=HOME;type=pref:letter@raemble.berlin
+TEL;type=CELL;type=VOICE;type=pref:+49 (0)173 8064434
+ADR;type=HOME;type=pref:;;berlin;;;;
+item1.URL;type=pref:http://raemble.berlin
+item1.X-ABLabel:_$!<HomePage>!$_
+X-ABShowAs:COMPANY
+UID:e50f0a41-bf12-4da7-9182-ee9ebdbaf794
+X-ABUID:E50F0A41-BF12-4DA7-9182-EE9EBDBAF794:ABPerson
+END:VCARD
