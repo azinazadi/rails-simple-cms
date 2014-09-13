@@ -50,7 +50,8 @@ gem 'rich', github: 'bastiaanterhorst/rich', ref: 'a3b4fcccf22788763b44dc732acce
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '~> 1.5.7'
 
-gem 'mandrill-api'
+
+gem 'pony', github: 'benprew/pony'
 
 gem 'unicorn'
 

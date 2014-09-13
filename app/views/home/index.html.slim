@@ -44,7 +44,18 @@ ruby:
   = raemble_svg
   div.f-content : .half
     = st 'Contact us', :text
-    pre The form will apear here
+    = form_tag("contacts/create", method: :post, class: 'vlist contact-form') do
+      table
+        tr
+          td.padding-right-single = st('TO:')
+          td = st('LETTER@RAMBLE.BERLIN')
+        tr
+          td.padding-right-single = st('FROM:')
+          td = text_field_tag(:from, '', placeholder: '-enter your email address please-', class: 'cf-from', required: true, type: 'email')
+
+      = text_area_tag(:body, "", size: "24x6", placeholder: 'Dear Ramble-Team, ...', required: true)
+      = submit_tag("Send my letter please!")
+
     div = st 'contact links', :text
 
 .folie.f-guest-book

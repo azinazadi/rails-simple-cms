@@ -21,5 +21,5 @@ class HomeController < ApplicationController
   private
   def fetch_page
     @page = Page.find_by_slug params['slug']
-  end
+    end
 end

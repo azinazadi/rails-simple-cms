@@ -28,6 +28,13 @@ GIT
       rails (>= 3.2.0)
       sass-rails
 
+GIT
+  remote: git://github.com/benprew/pony.git
+  revision: 05688d3b729f57774c46427ca6cc2a9b42bf78a8
+  specs:
+    pony (1.11)
+      mail (>= 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,7 +116,6 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    excon (0.39.5)
     execjs (2.2.1)
     formtastic (2.3.1)
       actionpack (>= 3.0)
@@ -141,9 +147,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    mandrill-api (1.0.52)
-      excon (>= 0.16.0, < 1.0)
-      json (>= 1.7.7, < 2.0)
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.1)
@@ -275,9 +278,9 @@ DEPENDENCIES
   i18n
   inherited_resources
   jquery-rails
-  mandrill-api
   paperclip (~> 4.2)
   pg
+  pony!
   protected_attributes
   rails (= 4.1.0)
   rails_12factor
