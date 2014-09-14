@@ -9,16 +9,24 @@
 
 $text-color: #fff
 html, body
-  font-size: 16px
-  line-height: 1.7
+  font-size: 13px
+  line-height: 19px
   font-family: "Montserrat", Arial, Helvetica, sans-serif
   color: $text-color
+#main h3
+  font-size:    14px
+  font-weight:  normal
+  line-height:  18px
+  margin:       0
+
 a, input[type='submit']
   text-transform: uppercase
   text-decoration: none !important
   color: #fff
   &:hover
     color: #fff
+  &:focus
+    outline: none
 
 
 form.contact-form
@@ -41,7 +49,6 @@ form.contact-form
     border-bottom: 1px solid transparent
     resize: none
     &:focus
-      outline: none
       border-bottom-color: white
   .cf-from
     width: 20rem

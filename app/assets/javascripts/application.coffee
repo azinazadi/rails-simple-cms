@@ -32,4 +32,6 @@ $ ->
     navigateTo target
 
   # next folie on click
-  $('.folie').click (event) -> navigateTo(nextFolie[$(this).data('id')]) unless event.target.tagName.toUpperCase() in ['INPUT', 'TEXTAREA', 'A', 'BUTTON']
+  $('.folie').click (event) ->
+    unless event.target.tagName.toUpperCase() in ['INPUT', 'TEXTAREA', 'A', 'BUTTON'] or  $(event.target).hasClass('editable')
+      navigateTo(nextFolie[$(this).data('id')])
