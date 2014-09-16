@@ -113,7 +113,19 @@ body#sessions
     left: 3rem
     right: 3rem
     overflow-y: auto
-  
+  .f-portrait
+    position: fixed
+    top:    4vh
+    right:  1.7vw
+    width:  44vw
+    height: 90vh
+  .fp-ariane
+    background: url("/assets/ariane.jpg") no-repeat left center
+    +background-size(cover)
+  .fp-norbert
+    background: url("/assets/norbert.jpg") no-repeat left center
+    +background-size(cover)
+
 
   .logo
     max-width: 100%
@@ -165,6 +177,14 @@ body#sessions
       left:   0
       background: url("/assets/gruppenfoto.jpg") no-repeat center center fixed
       +background-size(cover)
+
+  &.f-logo
+    +folie(3vh, 1vw, 2vh, 1.5vw, #003)
+    #ae
+      opacity: 1
+      position: absolute
+      top:      0
+      left:     0
 
 .half
   float: left

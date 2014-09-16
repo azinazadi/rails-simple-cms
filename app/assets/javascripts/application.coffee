@@ -33,5 +33,10 @@ $ ->
 
   # next folie on click
   $('.folie').click (event) ->
-    unless event.target.tagName.toUpperCase() in ['INPUT', 'TEXTAREA', 'A', 'BUTTON'] or  $(event.target).hasClass('editable')
+#    unless event.target.tagName.toUpperCase() in ['INPUT', 'TEXTAREA', 'A', 'BUTTON'] or  $(event.target).hasClass('editable')
       navigateTo(nextFolie[$(this).data('id')])
+  $('.folie .f-content *').click (event) ->  event.stopPropagation()
+
+  $('.logo-link').click (event) ->
+    navigateTo 'start'
+    event.stopPropagation()

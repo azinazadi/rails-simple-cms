@@ -35,6 +35,8 @@ module ApplicationHelper
 
 
   def raemble_svg
-    image_tag 'raemble.svg', class: 'logo'
+    link_to 'javascript:void(0);', class: 'logo-link' do
+      image_tag 'raemble.svg', class: 'logo'
+    end
   end
 end

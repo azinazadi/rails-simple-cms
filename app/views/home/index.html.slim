@@ -32,13 +32,13 @@ ruby:
   = raemble_svg
   div.f-content
     .half = st 'Ariane', :text
-    .half = image_tag 'ariane.jpg', alt: 'Ariane'
+  .f-portrait.fp-ariane
 
 .folie.f-norbert data-id='norbert'
   = raemble_svg
   div.f-content
     .half = st 'norbert', :text
-    .half = image_tag 'norbert.jpg', alt: 'Norbert'
+  .f-portrait.fp-norbert
 
 .folie.f-contact-us data-id='contact-us'
   = raemble_svg
@@ -70,3 +70,6 @@ ruby:
   .fsys-bg
   = raemble_svg
   div.f-content : .half = st 'See you soon.', :text
+
+.folie.f-logo
+  = image_tag 'ae.png', id: 'ae'
