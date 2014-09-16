@@ -13,32 +13,25 @@ ruby:
   = navi st('SITE NOTICE'),   'site-notice'
   = navi st('SEE YOU SOON'),  'see-you-soon'
 
-.folie.f-start.f-active.align-center data-id='start'
-  .simple-vcenter
-    = raemble_svg
-    h1 = st 'ARTFUL WALKS'
 
-.folie.f-artful-walks data-id='artful-walks'
-  = raemble_svg
-  div.f-content
-    .half = st 'Concept1', :text
-    .half = st 'Concept2', :text
 
-.folie.f-about-us data-id='about-us'
-  = raemble_svg
-  div.f-content : .half= st 'About us', :text
 
-.folie.f-ariane data-id='ariane'
-  = raemble_svg
-  div.f-content
-    .half = st 'Ariane', :text
-  .f-portrait.fp-ariane
 
-.folie.f-norbert data-id='norbert'
+.folie.f-logo
+  = image_tag 'ae.png', id: 'ae'
+
+.folie.f-see-you-soon data-id='see-you-soon'
+  .fsys-bg
   = raemble_svg
-  div.f-content
-    .half = st 'norbert', :text
-  .f-portrait.fp-norbert
+  div.f-content : .half = st 'See you soon.', :text
+
+.folie.f-site-notice data-id='site-notice'
+  = raemble_svg
+  div.f-content : .half = st 'Site Notice', :text
+
+.folie.f-guest-book data-id='guest-book'
+  = raemble_svg
+  div.f-content : .half = st 'Guest Book', :text
 
 .folie.f-contact-us data-id='contact-us'
   = raemble_svg
@@ -58,18 +51,34 @@ ruby:
 
     div = st 'contact links', :text
 
-.folie.f-guest-book data-id='guest-book'
+.folie.f-norbert data-id='norbert'
   = raemble_svg
-  div.f-content : .half = st 'Guest Book', :text
+  div.f-content
+    .half = st 'norbert', :text
+  .f-portrait.fp-norbert.f-hide-on-inactive
 
-.folie.f-site-notice data-id='site-notice'
+.folie.f-ariane data-id='ariane'
   = raemble_svg
-  div.f-content : .half = st 'Site Notice', :text
+  div.f-content
+    .half = st 'Ariane', :text
+  .f-portrait.fp-ariane.f-hide-on-inactive
 
-.folie.f-see-you-soon data-id='see-you-soon'
-  .fsys-bg
+.folie.f-about-us data-id='about-us'
   = raemble_svg
-  div.f-content : .half = st 'See you soon.', :text
+  div.f-content : .half= st 'About us', :text
 
-.folie.f-logo
-  = image_tag 'ae.png', id: 'ae'
+.folie.f-artful-walks data-id='artful-walks'
+  = raemble_svg
+  div.f-content
+    .half = st 'Concept1', :text
+
+
+.folie.f-start.f-active.align-center data-id='start'
+  .simple-vcenter.f-hide-on-inactive
+    = raemble_svg
+    h1 = st 'ARTFUL WALKS'
+
+
+
+
+

@@ -6,6 +6,9 @@
   &::-webkit-input-placeholder
     @content
 
+$opac1: .16
+$opac2: .29
+$opac3: .87
 
 $text-color: #fff
 html, body
@@ -13,11 +16,18 @@ html, body
   line-height: 19px
   font-family: "Montserrat", Arial, Helvetica, sans-serif
   color: $text-color
-#main h3
-  font-size:    14px
-  font-weight:  normal
-  line-height:  18px
-  margin:       0
+  text-rendering: optimizeLegibility !important
+  -webkit-font-smoothing: antialiased !important
+
+#main
+  h3
+    font-size:    14px
+    font-weight:  normal
+    line-height:  18px
+    margin:       0
+  h1
+    font-size:    24px
+    font-weight:  normal
 
 a, input[type='submit']
   text-transform: uppercase
@@ -41,15 +51,19 @@ form.contact-form
     width: 100%
 
   input, textarea
+    resize: none
+    border-bottom: 1px solid transparent
+
     +placeholder
       color: white
+
     &:focus
       +placeholder
         color: transparent
-    border-bottom: 1px solid transparent
-    resize: none
-    &:focus
+      outline: none
       border-bottom-color: white
+
+
   .cf-from
     width: 20rem
     max-width: 100%
@@ -73,15 +87,20 @@ body#sessions
   +transform( rotate(-90deg))
   a
     +transform(rotate(45deg))
+    +backface-visibility(0)
     opacity: 0.7
     &.n-active, &:hover
-      //font-weight: bold
+      font-weight: bold
       opacity: 1
+
 
   body[data-current-folie='start'] &
     display: none
 
-= folie ($top, $right, $bottom, $left, $bg)
+@function f-color($c1, $c2)
+  @return mix($c1, $c2, 0.64)
+
+= folie ($top, $right, $bottom, $left, $bg, $inactive-opac: $opac1)
   top: $top
   left: $left
   //have to set explicit height so vertical centering works
@@ -90,16 +109,11 @@ body#sessions
   width: 100vw - $left - $right
   background-color: $bg
   &.f-active
-    background-color: rgba($bg, 0.8)
+    background-color: rgba($bg, 0.87)
     color:            $text-color
     z-index: 5
   &:not(.f-active)
-    background-color: rgba($bg, 0.4)
-    *
-      opacity: 0.2
-    .fsys-bg
-    opacity: 0.1
-    //color:            rgba($text-color,0.2)
+    background-color: rgba($bg, $inactive-opac)
 
 
 .folie
@@ -115,10 +129,11 @@ body#sessions
     overflow-y: auto
   .f-portrait
     position: fixed
-    top:    4vh
-    right:  1.7vw
-    width:  44vw
-    height: 90vh
+    top:      4vh
+    right:    1.7vw
+    width:    44vw
+    height:   90vh
+    opacity:  0.9
   .fp-ariane
     background: url("/assets/ariane.jpg") no-repeat left center
     +background-size(cover)
@@ -126,6 +141,14 @@ body#sessions
     background: url("/assets/norbert.jpg") no-repeat left center
     +background-size(cover)
 
+  &:not(.f-active)
+    .f-content *, h1
+      opacity: 0.05
+    .f-hide-on-inactive
+      &, & *
+        opacity: 0
+    .fsys-bg
+      opacity: 0.1
 
   .logo
     max-width: 100%
@@ -140,35 +163,38 @@ body#sessions
       zoom: 0.7
       margin-bottom: 2rem
 
+  &:not(.f-active) .f-hide-on-inactive
+    opacity: 0
+
   &.f-start
-    +folie(3.5vh, 3.5vw, 3.5vh, 3.5vw, #00002c)
+    +folie(3.9vh, 3.9vw, 3vh, 3.5vw, #003, $opac2)
 
   &.f-artful-walks
-    +folie(6vh, 2vw, 5vh, 1vw, rgb(0, 65, 116))
+    +folie(5.3vh, 2.4vw, 5.1vh, 1.1vw, #004174, $opac2)
 
   &.f-about-us
-    +folie(5vh, 2vw, 4vh, 7vw, #0e0058)
+    +folie(4.9vh, 1.6vw, 4.2vh, 6.6vw, #0E0058, $opac2)
 
   &.f-ariane
-    +folie(5vh, 2vw, 3vh, 6vw, #003366)
+    +folie(6.2vh, 2.3vw, 3vh, 5.8vw, #036)
 
   &.f-norbert
-    +folie(5vh, 2vw, 3vh, 6vw, #003366)
+    +folie(6.3vh, 2.6vw, 2.9vh, 5.6vw, #369)
 
   &.f-contact-us
-    +folie(8.5vh, 1vw, 2vh, 0.8vw, #000033)
+    +folie(8.8vh, 0.6vw, 1.9vh, 0.8vw, #003)
 
   &.f-guest-book
-    +folie(1.5vh, 1.5vw, 1vh, 0.5vw, #78bbcb)
+    +folie(1.5vh, 1vw, 1.5vh, 1.2vw, #78BBCB)
     &.f-active
-      background-color: rgba(#78bbcb, 0.7)
+      background-color: rgba(#78BBCB, 0.75)
 
 
   &.f-site-notice
-    +folie(2vh, 1vw, 1.5vh, 1vw, #333333)
+    +folie(2.2vh, 1.2vw, 1.7vh, 0.8vw, #333)
 
   &.f-see-you-soon
-    +folie(6.5vh, 5vw, 3vh, 4.5vw, #443322)
+    +folie(6.6vh, 6.7vw, 3.1vh, 4.7vw, #003)
     .fsys-bg
       position: absolute
       top:    0
@@ -179,9 +205,8 @@ body#sessions
       +background-size(cover)
 
   &.f-logo
-    +folie(3vh, 1vw, 2vh, 1.5vw, #003)
+    +folie(2.9vh, 1.3vw, 2.5vh, 1.3vw, #003)
     #ae
-      opacity: 1
       position: absolute
       top:      0
       left:     0
