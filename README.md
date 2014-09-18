@@ -1,4 +1,4 @@
-== Rails Simple CMS
+### Rails Simple CMS
 
 This is a starting point to make any kind of simple rails websites. As there isnt a really nice platform to make inline editing in rails application in a nice way, this comes very handy, and it is benefitting from the new html5 editable components.
 
