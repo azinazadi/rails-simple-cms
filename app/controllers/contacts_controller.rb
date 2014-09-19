@@ -1,0 +1,26 @@
+class ContactsController < ApplicationController
+  def create
+    from = params[:from]
+    body = params[:body]
+
+    #set the default options
+    Pony.options = {
+      :from => 'graphtea@gmail.com',
+      :via => :smtp,
+      :via_options => {
+          :address              => 'smtp.gmail.com',
+          :port                 => '587',
+          :enable_starttls_auto => true,
+          :user_name            => 'graphtea@gmail.com',
+          :password             => ENV['gtp'],
+          :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+          :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+        }    }
+    Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[RAMBLE] new contact from #{from}", :body => "#{body}  -- #{from}")
+    Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[RAMBLE] new contact from #{from}", :body => "#{body}  -- #{from}")
+
+    Contact.create!(from: from, body: body)
+
+    render :nothing => true
+  end
+end

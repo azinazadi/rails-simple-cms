@@ -27,6 +27,7 @@ gem 'pg'
 #todo: remove it for production
 gem "better_errors"
 gem "binding_of_caller"
+gem 'pony', github: 'benprew/pony'
 
 group :production do
   gem 'rails_12factor'

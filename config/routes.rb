@@ -1,5 +1,7 @@
 Doxbox::Application.routes.draw do
 
+  post 'contacts/create'
+
   devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout" }
 
   mount Rich::Engine => '/rich', :as => 'rich'

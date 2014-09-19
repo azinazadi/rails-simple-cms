@@ -1,8 +1,12 @@
 #= require jquery
-##= require jquery_ujs
+#= require jquery_ujs
 #= require fitVids
 #= require bootstrap
 
-#$ ->
+$ ->
+  $('html, body').scrollTop($('#vid').height()/2);
+
   $('.fitvids').fitVids()
-#  $('body').addClass('loaded')
+
+  $('.contact-form').submit -> $('#myModal').modal('hide')
+  $('.download-link').click -> $('#myModal').modal('show')
