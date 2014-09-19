@@ -8,17 +8,13 @@ doctype html
     = yield :stylesheet_includes
 
 
-<body id=params[:controller].split('/').last class="#{params[:action]}">
-p.notice= notice
-p.alert= alert
+body id=params[:controller].split('/').last class="#{params[:action]}"
+  #main *main_attrs
+    = yield
 
-#main *main_attrs
-  = yield
+  = javascript_include_tag "application"
+  = yield :javascript_includes
 
-= javascript_include_tag "application"
-= yield :javascript_includes
-
-- if can?(:see, :admin_toolbar)
-  = render :partial => 'shared/admin_toolbox'
-</body>
+  - if can?(:see, :admin_toolbar)
+    = render :partial => 'shared/admin_toolbox'
 </html>

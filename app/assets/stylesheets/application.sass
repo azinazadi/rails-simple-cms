@@ -6,11 +6,63 @@ $highlight: #c4c0b3
 $highlight-semitrans:  hsla(171, 58, 51, 0.5)
 $gutter: 15px
 
-@import bs-variables
+$font-size-base: 18px
 
-@import compass
-@import bootstrap
+//
+//@import bs-variables
+//
+//@import compass
+@import "bootstrap-sprockets"
+// Core variables and mixins
+@import "bootstrap/variables"
+@import "bootstrap/mixins"
 
-
-@import layout
+// Reset and dependencies
+@import "bootstrap/normalize"
+@import "bootstrap/print"
+@import "bootstrap/scaffolding"
+@import "bootstrap/type"
+@import "bootstrap/forms"
+@import "bootstrap/buttons"
+@import "bootstrap/responsive-utilities"
+@import "bootstrap/grid"
+@import "bootstrap/modals"
+//
+//
+//@import layout
 @import atoms
+
+
+.container
+  max-width: 60rem
+
+h1, h2, h3
+  margin-top: 2em
+code
+  padding: 2px 4px
+  color: #d14
+  background-color: rgba(247, 247, 249, 0.39)
+  border: 1px solid #e1e1e8
+  padding: 0 3px 2px
+  font-family: Menlo, Monaco, "Courier New", monospace
+  color: #333333
+  border-radius: 3px
+  margin: 0.5em
+
+
+//http://www.colourlovers.com/palette/300739/Sibilla_Delfica#
+
+.vid-overlay
+  position: relative
+  #play-btn
+    display: block
+    opacity: 0
+    position: absolute
+    bottom: 0
+    left: 0
+  &:hover
+    #vid-preview
+      opacity: 1
+    #play-btn
+      opacity: 0.8
+
