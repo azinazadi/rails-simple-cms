@@ -63,7 +63,7 @@ Doxbox::Application.routes.draw do
   #match '/:name' => 'home#general', :action => :general
   post '/inplace-update/' => 'application#inplace_update', :as => :inplace_update
 
-  # get ':slug' => 'home#page'
+  get ':slug' => 'home#page'
 
   # See how all your routes lay out with "rake routes"
 
