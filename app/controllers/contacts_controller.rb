@@ -16,8 +16,8 @@ class ContactsController < ApplicationController
           :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
           :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
         }    }
-    Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[RAMBLE] new contact from #{from}", :body => "#{body}  -- #{from}")
-    Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[RAMBLE] new contact from #{from}", :body => "#{body}  -- #{from}")
+    Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
+    Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
 
     Contact.create!(from: from, body: body)
 
