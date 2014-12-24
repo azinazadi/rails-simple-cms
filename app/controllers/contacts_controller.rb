@@ -19,6 +19,7 @@ class ContactsController < ApplicationController
     Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
     Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
 
+    Pony.mail to: params[:from], subject: StaticText.find_by_key(:first_evaluation_subject), body: StaticText.find_by_key(:first_evaluation_body)
     Contact.create!(from: from, body: body)
 
     render :nothing => true
