@@ -4,6 +4,7 @@
 #= require bootstrap
 
 $ ->
+  $.get '/tik/visit'
   $('html, body').scrollTop($('#vid').height()/2);
 
   $('.fitvids').fitVids()
