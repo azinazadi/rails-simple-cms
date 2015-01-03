@@ -20,7 +20,8 @@ class ContactsController < ApplicationController
     Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
 
     Pony.mail to: params[:from], subject: StaticText.find_by_key(:first_evaluation_subject).value, html_body: StaticText.find_by_key(:first_evaluation_body).value
-    Contact.create!(from: from, body: body)
+    c = Contact.create!(from: from, body: body)
+    Event.create(ip: request.remote_ip, what: 'contact', data: c.id)
 
     render :nothing => true
   end
