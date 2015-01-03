@@ -62,6 +62,7 @@ Doxbox::Application.routes.draw do
 
   #match '/:name' => 'home#general', :action => :general
   post '/inplace-update/' => 'application#inplace_update', :as => :inplace_update
+  get '/tik/:what' => 'events#create'
 
   get ':slug' => 'home#page'
 

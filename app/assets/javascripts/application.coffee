@@ -9,4 +9,6 @@ $ ->
   $('.fitvids').fitVids()
 
   $('.contact-form').submit -> $('#myModal').modal('hide')
-  $('.download-link').click -> $('#myModal').modal('show')
+  $('.download-link').click ->
+    $('#myModal').modal('show')
+    $.get '/tik/download'

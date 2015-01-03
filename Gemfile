@@ -22,7 +22,14 @@ group :test do
   gem 'sqlite3'
   gem 'rspec'
 end
-gem 'pg'
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 #todo: remove it for production
 gem "better_errors"
