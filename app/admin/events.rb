@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  [:ip, :what, :created_at].each { |f| filter f}
+  # [:ip, :what, :created_at].each { |f| filter f}
   # index do
     # [:ip, :what, :created_at].each { |f| columns f}
     # column :data do |event|
