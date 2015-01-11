@@ -4,3 +4,4 @@ tmp
 log/*
 .powrc
 raemble
+config/database.yml
