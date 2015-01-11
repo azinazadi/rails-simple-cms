@@ -27,7 +27,7 @@ ActiveAdmin.register_page "Analytics" do
       end
       Event.select(:ip).distinct.each do |event|
         ip = event.ip
-        whats = Event.where(ip: ip).group(:what).map(&:what).join(', ')
+        whats = Event.where(ip: ip).all.map(&:what).join(', ')
         count = Event.where(ip: ip).size
         tr do
           td "<a href='/admin/events?ip_contains%5D=#{ip}'>#{ip}</a>".html_safe, style: 'width:15em'
