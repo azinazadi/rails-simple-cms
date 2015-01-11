@@ -32,7 +32,7 @@ ActiveAdmin.register_page "Analytics" do
         tr do
           td "<a href='/admin/events?ip_contains%5D=#{ip}'>#{ip}</a>".html_safe, style: 'width:15em'
           td count
-          td Event.where(ip: ip).first.data
+          td Event.where(ip: ip).first.data[-4..-1]
           td whats
         end
 
