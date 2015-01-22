@@ -1,2 +1,7 @@
-div *(editable_root @page)
-  div *(editable @page, :content, :text, :full) = @page.content.html_safe
+- if vid = StaticText.get_value("#{@page.slug}-vid")
+  div.bgvid
+    iframe frameborder="0" height="100%" width="100%" src="https://youtube.com/embed/#{vid}?autoplay=1&controls=0&showinfo=0&autohide=1&modestbranding=0&rel=0&loop=1&theme=light&playlist=qcjaZfeV-g4">
+
+.wrapper
+  div *(editable_root @page)
+    div *(editable @page, :content, :text, :full) = @page.content.html_safe

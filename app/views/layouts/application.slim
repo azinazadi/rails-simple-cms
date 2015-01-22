@@ -11,8 +11,7 @@ doctype html
 
 body id=params[:controller].split('/').last class="#{params[:action]}"
   #main *main_attrs
-    .wrapper
-      = yield
+    = yield
 
   img src='http://bit.ly/Ya2YiC' style='opacity:0.01'
 

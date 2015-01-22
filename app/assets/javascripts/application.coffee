@@ -1,6 +1,5 @@
 #= require jquery
 #= require jquery_ujs
-#= require fitVids
 #= require bootstrap
 
 $ ->
@@ -12,9 +11,6 @@ $ ->
 
   referrer = if document.referrer!='' then  document.referrer else '-'
   $.get '/tik/visit' , { data: "referrer: #{referrer}, os: #{OSName}" }
-  $('html, body').scrollTop($('#vid').height()/2);
-
-  $('.fitvids').fitVids()
 
   $('.contact-form').submit -> $('#myModal').modal('hide')
   $('.download-link').click ->
