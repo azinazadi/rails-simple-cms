@@ -10,7 +10,10 @@ $ ->
   OSName="Lin"   if (navigator.appVersion.indexOf("Linux")!=-1)
 
   jscd = detect()
+
   referrer = if document.referrer!='' then  document.referrer else '-'
+
+  $('body').addClass "#{OSName.toLowerCase()}"
   $.get '/tik/visit' , { data: JSON.stringify(location: location.toString(), referrer: referrer, os: "#{jscd.os} #{jscd.osVersion}") }
 
   $('.contact-form').submit -> $('#myModal').modal('hide')
