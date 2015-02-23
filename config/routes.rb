@@ -64,6 +64,8 @@ Doxbox::Application.routes.draw do
   post '/inplace-update/' => 'application#inplace_update', :as => :inplace_update
   get '/tik/:what' => 'events#create'
 
+  get '/fwd/:slug' => 'forwards#fwd'
+
   get ':slug' => 'home#page'
 
   # See how all your routes lay out with "rake routes"
