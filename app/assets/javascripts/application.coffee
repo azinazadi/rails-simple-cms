@@ -18,6 +18,9 @@ $ ->
     $('#myModal').modal('show')
     $.get '/tik/download'
 
+  $('.buy-link').click ->
+    $.get '/tik/payment_clicked'
+
 detect = () ->
   unknown = '-'
   # screen
