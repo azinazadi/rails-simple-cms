@@ -16,16 +16,83 @@ ActiveAdmin.register Event do
   # end
 
 end
+def num(num, divisor, bold=false)
+  return '-' if divisor == 0
+  ret = (num / divisor.to_f).round(1)
+  !bold ? ret : "<b>#{ret}</b>"
+end
 ActiveAdmin.register_page "Analytics" do
   content do
+    h2 'Reports'
+
+    first = Event.first.created_at
+    last  = Event.last.created_at
+    current = first
     table do
       tr do
-        th 'ip'
+        th 'date'
+        th 'visits'
+        th 'DLs'
+        th 'contacts'
+        th 'runs'
+        th 'first visits / day'
+        th 'DLs / day, DLs / visit'
+        th 'first runs / day'
+        th 'contacts / DLs'
+        th 'visits / day: total, win, mac, lin'
+        th 'DLs / day: total, w, m, l'
+        th 'first run / DLs: total, w, m, l'
+      end
+      while (current < last)
+        tr do
+          events = Event.in_week current
+          td "#{current.strftime("%d.%m.%y")} .. #{(current+1.week).strftime("%d.%m.%y")}"
+          [:visits, :downloads, :contacts, :runs].each{ |s| td events.try(s).count_users}
+          td num(Event.first_time_visit_count(current),7)
+          td [
+            num(events.downloads.count_users, 7),
+            num(events.downloads.count_users, Event.first_time_visit_count(current)),
+          ].join(' , ').html_safe
+          td num(events.runs.have_ip_in(events.downloads).count_users, 7)
+          td num(events.contacts.count_users, events.downloads.count)
+
+          td [
+            num(events.visits.count_users, 7),
+            num(events.visits.on_win(events).count_users, 7),
+            num(events.visits.on_mac(events).count_users, 7),
+            num(events.visits.on_lin(events).count_users, 7),
+          ].join(' , ').html_safe
+
+          td [
+            num(events.downloads.count_users,7),
+            num(events.downloads.on_win(events).count_users, 7),
+            num(events.downloads.on_mac(events).count_users, 7),
+            num(events.downloads.on_lin(events).count_users,1),
+          ].join(' , ').html_safe
+
+
+
+          td [
+              num(events.runs.have_ip_in(events.downloads).count_users, events.downloads.count_users),
+              num(events.runs.have_ip_in(events.downloads.on_win(events)).count_users, events.downloads.on_win(events).count_users),
+              num(events.runs.have_ip_in(events.downloads.on_mac(events)).count_users, events.downloads.on_mac(events).count_users),
+              num(events.runs.have_ip_in(events.downloads.on_lin(events)).count_users, events.downloads.on_lin(events).count_users),
+             ].join(' , ').html_safe
+
+          current += 1.week
+        end
+      end
+    end
+
+    table do
+      tr do
+        th 'date'
         th 'count'
         th 'os'
+        th 'ip'
         th 'whats'
       end
-      sorted_ips = Event.select(:ip).distinct.map(&:ip).sort_by { |ip| Event.find_by(ip: ip).created_at}
+      sorted_ips = Event.select(:ip).distinct.map(&:ip).last(100).sort_by { |ip| Event.find_by(ip: ip).created_at}
       sorted_ips.reverse.each do |ip|
         whats = Event.where(ip: ip).all.map do |event|
           unless event.what=='contact'
@@ -37,9 +104,10 @@ ActiveAdmin.register_page "Analytics" do
         end.join(', ')
         count = Event.where(ip: ip).size
         tr do
-          td "<a href='/admin/events?utf8=✓&q%5Bip_contains%5D=#{ip}' target='_blank'>#{ip}</a>".html_safe, style: 'width:15em'
+          td "#{Event.where(ip: ip).first.created_at.strftime("%d.%m.%y")} - #{Event.where(ip: ip).last.created_at.strftime("%d.%m.%y")}"
           td count
           td (Event.where(ip: ip).first.data || '' )[-4..-1]
+          td "<a href='/admin/events?utf8=✓&q%5Bip_contains%5D=#{ip}' target='_blank'>#{ip}</a>".html_safe, style: 'width:15em'
           td whats.html_safe
         end
 
