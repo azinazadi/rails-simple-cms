@@ -3,17 +3,17 @@
 #= require bootstrap
 
 $ ->
-  OSName="Unknown OS"
+  OSName="Else"
   OSName="Win" if (navigator.appVersion.indexOf("Win")!=-1)
   OSName="Mac"   if (navigator.appVersion.indexOf("Mac")!=-1)
-  OSName="UNIX"    if (navigator.appVersion.indexOf("X11")!=-1)
+#  OSName="UNIX"    if (navigator.appVersion.indexOf("X11")!=-1)
   OSName="Lin"   if (navigator.appVersion.indexOf("Linux")!=-1)
+  $('body').addClass "#{OSName.toLowerCase()}"
 
   jscd = detect()
 
   referrer = if document.referrer!='' then  document.referrer else '-'
 
-  $('body').addClass "#{OSName.toLowerCase()}"
   $.get '/tik/visit' , { data: JSON.stringify(location: location.toString(), referrer: referrer, os: "#{jscd.os} #{jscd.osVersion}") }
 
   $('.contact-form').submit -> $('#myModal').modal('hide')
