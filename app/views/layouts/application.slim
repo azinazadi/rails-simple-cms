@@ -2,7 +2,8 @@ doctype html
 
 <html>
   head
-    meta name="google-site-verification" content="vIkUvs3LvMr8tVoI96p00RUfj-gu9NhdBM7MQE4HeBE"
+    meta charset="utf-8"
+ 	meta name="viewport" content="width=device-width, initial-scale=1"
     link href='http://fonts.googleapis.com/css?family=Lato:400,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'
     = stylesheet_link_tag "application", :media => "all"
     = csrf_meta_tags
@@ -11,6 +12,17 @@ doctype html
 
 body id=params[:controller].split('/').last class="#{params[:action]}"
   #main *main_attrs
+    .vid-overlay:.wrapper
+      h1.no-margin :  a.black href="/"  GraphTea
+      p
+        b Your buddy to teach, learn and research on graph theory.
+      .hlist
+        div &nbsp;
+        div DOWNLOAD FOR:
+        a.download-link href="http://graphtheorysoftware.com/fwd/dl_win"  Windows
+        a.download-link href="http://graphtheorysoftware.com/fwd/dl_mac"  Mac
+        a.download-link href="http://graphtheorysoftware.com/fwd/dl_lin"  Linux
+
     = yield
 
   img src='http://bit.ly/Ya2YiC' style='opacity:0.01'
