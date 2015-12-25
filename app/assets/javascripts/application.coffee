@@ -19,10 +19,10 @@ $ ->
   $('.contact-form').submit -> $('#myModal').modal('hide')
   $('.download-link').click ->
     $('#myModal').modal('show')
-    $.get '/tik/download'
 
   $('.buy-link').click ->
     $.get '/tik/payment_clicked'
+
 
 detect = () ->
   unknown = '-'
