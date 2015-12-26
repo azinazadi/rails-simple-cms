@@ -92,14 +92,16 @@ ActiveAdmin.register_page "Analytics" do
         th 'ip'
         th 'whats'
       end
-      sorted_ips = Event.select(:ip).distinct.map(&:ip).last(100).sort_by { |ip| Event.find_by(ip: ip).created_at}
+      sorted_ips = Event.where("created_at >= ?", 14.days.ago).select(:ip).distinct.map(&:ip)
       sorted_ips.reverse.each do |ip|
         whats = Event.where(ip: ip).all.map do |event|
-          unless event.what=='contact'
-            event.what
-          else
+          if event.what=='contact'
             c = Contact.find(event.data)
             link_to("contact: #{c.from}", admin_contact_path(c), target: '_blank')
+          elsif event.what == 'visit'
+            "visit"
+          else
+            event.what
           end
         end.join(', ')
         count = Event.where(ip: ip).size
