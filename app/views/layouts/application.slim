@@ -33,5 +33,15 @@ body id=params[:controller].split('/').last class="#{params[:action]}"
   - if can?(:see, :admin_toolbar)
     = render :partial => 'shared/admin_toolbox'
 
+javascript:
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    xhr.open('POST', 'https://api.oasis.sandstorm.io/t', true);
+    xhr.setRequestHeader('Authorization',
+                         'Bearer J6ByTLho1l3LYC5p1ASifMwU2YSHCv_OtH_eXOdAlSa');
+    xhr.setRequestHeader('X-Sandstorm-Passthrough', 'address');
+    xhr.send(null);
+  }
+
 
 </html>
