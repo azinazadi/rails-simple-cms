@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   def create
     from = params[:from]
     body = params[:body]
+    name = params[:name]
 
     #set the default options
     Pony.options = {
@@ -16,13 +17,13 @@ class ContactsController < ApplicationController
           :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
           :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
         }    }
-    Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
-    Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from}")
-
-    Pony.mail to: params[:from], subject: StaticText.find_by_key(:first_evaluation_subject).value, html_body: StaticText.find_by_key(:first_evaluation_body).value
-    c = Contact.create!(from: from, body: body)
+    # Pony.mail(:to => 'aazadi@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from} — ${name}")
+    # Pony.mail(:to => 'rostamiev@gmail.com',            :subject => "[GraphTea] new download from #{from}", :body => "#{body}  -- #{from} — ${name}")
+    #
+    # Pony.mail to: params[:from], subject: StaticText.find_by_key(:first_evaluation_subject).value, html_body: StaticText.find_by_key(:first_evaluation_body).value
+    c = Contact.create!(from: from, body: body, name: name)
     Event.create(ip: request.remote_ip, what: 'contact', data: c.id)
 
-    render :nothing => true
+    redirect_to '/download'
   end
 end

@@ -66,6 +66,8 @@ Doxbox::Application.routes.draw do
 
   get '/fwd/:slug' => 'forwards#fwd'
 
+  get '/todownload' => 'home#todownload'
+
   get ':slug' => 'home#page'
 
   # See how all your routes lay out with "rake routes"

@@ -33,24 +33,5 @@ body id=params[:controller].split('/').last class="#{params[:action]}"
   - if can?(:see, :admin_toolbar)
     = render :partial => 'shared/admin_toolbox'
 
-  .modal.fade id="myModal" tabindex="-1"
-    .modal-dialog
-      .modal-content
-        .modal-body
-          = form_tag("contacts/create", method: :post, class: 'vlist contact-form', remote: true) do
-            p = st "download_modal", :text do
-              | Thank you!<br>
-              | Guessing what every body like to do with graph theory is not easy. We all come with different
-              | interest and intention. Therefore we would like to make a dialog with you about your interest in graph theory
-              | and how can GraphTea fulfill it. Please write your email address so we can keep in contact with you.
-
-            = text_field_tag(:from, '', placeholder: 'Your email address', class: 'form-control', required: true, type: 'email')
-            br
-            p What is your main interest about graph theory?
-            = text_area_tag(:body, "", size: "24x6", placeholder: 'I would like to use GraphTea for...', class: 'form-control')
-
-            br
-            input.submit-contact.btn.btn-default type="submit" name="subscribe"  value="Let's go"
-
 
 </html>
