@@ -7,10 +7,10 @@
   = form_tag("contacts/create", method: :post, class: 'vlist contact-form') do
 
     = text_field_tag(:from, '', placeholder: 'Your Name', class: 'form-control', required: false, type: 'email')
-    = text_field_tag(:from, '', placeholder: 'Your email', class: 'form-control', required: true, type: 'email')
+    = text_field_tag(:from, '', placeholder: 'Your email *', class: 'form-control', required: true, type: 'email')
     br
     p What is your main interest about graph theory?
-    = text_area_tag(:body, "", size: "24x6", placeholder: 'I would like to use GraphTea for...', class: 'form-control')
+    = text_area_tag(:body, "", size: "24x2", placeholder: 'I would like to use GraphTea for...', class: 'form-control')
 
     br
     input.submit-contact.btn.btn-default type="submit" name="subscribe"  value="Let's go"
