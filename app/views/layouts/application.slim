@@ -13,15 +13,19 @@ doctype html
 body id=params[:controller].split('/').last class="#{params[:action]}"
   #main *main_attrs
     .vid-overlay:.wrapper
+      .content-with-icon.cwi-responsive
+        .cwi-icon
+          .logo= image_tag "icon.png"
+        .cwi-content style='padding-top: 30px'
 
-      h1.no-margin :  a.black href="/"  GraphTea
-      p
-        b Your buddy to teach, learn and research on graph theory.
-      = st 'menu', :text do
-        span> DOWNLOAD FOR:
-        a.download-link href="http://graphtheorysoftware.com/fwd/dl_win"  Windows
-        a.download-link href="http://graphtheorysoftware.com/fwd/dl_mac"  Mac
-        a.download-link href="http://graphtheorysoftware.com/fwd/dl_lin"  Linux
+          h1.no-margin :  a.black href="/"  GraphTea
+          p
+            b Your buddy to teach, learn and research on graph theory.
+          = st 'menu', :text do
+            span> DOWNLOAD FOR:
+            a.download-link href="http://graphtheorysoftware.com/fwd/dl_win"  Windows
+            a.download-link href="http://graphtheorysoftware.com/fwd/dl_mac"  Mac
+            a.download-link href="http://graphtheorysoftware.com/fwd/dl_lin"  Linux
 
     = yield
 

@@ -36,7 +36,7 @@ body *
 @import "bootstrap/type"
 @import "bootstrap/forms"
 @import "bootstrap/buttons"
-//@import "bootstrap/responsive-utilities"
+@import "bootstrap/responsive-utilities"
 //@import "bootstrap/grid"
 @import "bootstrap/modals"
 //
@@ -44,9 +44,12 @@ body *
 //@import layout
 @import atoms
 
+html, body
+  font-size: 100% !important
+
 
 .wrapper
-  max-width: 80rem
+  max-width: 95rem
   padding: 1rem
   margin: auto
 
@@ -57,8 +60,7 @@ h1, h2, h3
 input:focus, textarea:focus
   box-shadow: none !important
 
-#main
-  padding-top:    170px
+
 
 .bgvid
   width:  100vw
@@ -68,15 +70,10 @@ input:focus, textarea:focus
   background-color: white
 
 .vid-overlay
-  position: fixed
-  top:   0
   background-color: white
-  padding:  2rem
-  left: 0
-  height: 170px
   width: 100vw
-  +box-shadow(0 0 10px rgba(0,0,0,0.3))
   z-index: 100
+  border-bottom: 1px solid #DDD
 img
   width: auto !important
   height: auto !important
@@ -96,3 +93,26 @@ body.lin .on-lin
 
 body.else .on-else
   display: block
+
+@media (min-width: $screen-lg-min)
+  .vid-overlay
+    position: fixed
+    top:   0
+    left: 0
+    min-height: 200px
+    //padding:  2rem
+
+
+
+  #main
+    padding-top:    200px
+
+@media (max-width: $screen-sm-min)
+
+  .logo img
+    width: 25vw !important
+  .vid-overlay
+    text-align: center
+  h1, h2
+    font-size: 1rem
+    line-height: 1.3
