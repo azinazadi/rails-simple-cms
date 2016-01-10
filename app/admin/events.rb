@@ -43,7 +43,7 @@ ActiveAdmin.register_page "Analytics" do
         th 'DLs / day: total, w, m, l'
         th 'first run / DLs: total, w, m, l'
       end
-      while (current < last)
+      while current < last
         tr do
           events = Event.in_week current
           td "#{current.strftime("%d.%m.%y")} .. #{(current+1.week).strftime("%d.%m.%y")}"
@@ -92,14 +92,24 @@ ActiveAdmin.register_page "Analytics" do
         th 'ip'
         th 'whats'
       end
-      sorted_ips = Event.where("created_at >= ?", 14.days.ago).select(:ip).distinct.map(&:ip)
+
+
+
+
+
+      sorted_ips = Event.where("created_at >= ?", 2.weeks.ago).select(:ip).distinct.map(&:ip)
+
+      sorted_ips = sorted_ips.sort_by {|ip| Event.where(ip: ip).last.created_at}
+
       sorted_ips.reverse.each do |ip|
         whats = Event.where(ip: ip).all.map do |event|
           if event.what=='contact'
             c = Contact.find(event.data)
             link_to("contact: #{c.from}", admin_contact_path(c), target: '_blank')
           elsif event.what == 'visit'
-            "visit"
+            "visit: <b>#{event.visit_location}</b>"
+          elsif event.what == 'run'
+            "run: <b>#{event.data}</b>"
           else
             event.what
           end

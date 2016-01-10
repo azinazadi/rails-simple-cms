@@ -31,4 +31,13 @@ class Event < ActiveRecord::Base
     distinct_ips.count
   end
 
+  def data_map
+    JSON.parse data
+  end
+
+  def visit_location
+    l = data_map['location']
+    l[(l.rindex(/\//)) .. -1]
+  end
+
 end
