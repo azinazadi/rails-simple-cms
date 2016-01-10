@@ -40,7 +40,7 @@ class Event < ActiveRecord::Base
   end
 
   def visit_location
-    l = data_map['location'] || ''
+    l = data_map['location'] || '/'
     l[(l.rindex(/\//)) .. -1]
   end
 
