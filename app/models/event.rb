@@ -32,7 +32,11 @@ class Event < ActiveRecord::Base
   end
 
   def data_map
-    JSON.parse data
+    begin
+      JSON.parse data
+    rescue
+      return {}
+    end
   end
 
   def visit_location
