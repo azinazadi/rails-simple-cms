@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
     Pony.mail to: params[:from], subject: StaticText.find_by_key(:first_evaluation_subject).value, html_body: StaticText.find_by_key(:first_evaluation_body).value
 
     c = Contact.create!(from: from, body: body, name: name)
-    Event.create(ip: request.remote_ip, what: 'contact', data: c.id)
+    # Event.create(ip: request.remote_ip, what: 'contact', data: c.id)
 
     redirect_to '/download'
   end
