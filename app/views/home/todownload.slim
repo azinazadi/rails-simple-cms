@@ -6,7 +6,7 @@
 
   = form_tag("contacts/create", method: :post, class: 'vlist contact-form') do
 
-    = text_field_tag(:from, '', placeholder: 'Your Name', class: 'form-control', required: false)
+    = text_field_tag(:name, '', placeholder: 'Your Name', class: 'form-control', required: false)
     = text_field_tag(:from, '', placeholder: 'Your email *', class: 'form-control', required: true, type: 'email')
     br
     p What is your main interest about graph theory?
