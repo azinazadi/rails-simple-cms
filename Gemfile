@@ -79,4 +79,4 @@ gem 'awesome_nested_fields'
 # To use debugger
 # gem 'debugger'
 
-ruby '2.1.5'
+ruby '3.1.0'
